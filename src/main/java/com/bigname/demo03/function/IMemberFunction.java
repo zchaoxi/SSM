@@ -7,4 +7,6 @@ import com.bigname.demo03.core.Member;
 @Service
 public interface IMemberFunction {
 	Member login(String name, String passsword) throws Exception;
+
+	Member queryAll() throws Exception;
 }

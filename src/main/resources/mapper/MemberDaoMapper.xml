@@ -6,4 +6,8 @@
 	<select id="selectMemberByName" resultType="com.bigname.demo03.core.Member" parameterType="string">
 		select * from Member where name = #{name}
 	</select>
+
+	<select id="queryAll" resultType="com.bigname.demo03.core.Member">
+		select * from Member
+	</select>
 </mapper>

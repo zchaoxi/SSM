@@ -16,7 +16,7 @@ public class LoginController {
 	
 	@RequestMapping(value = "/hello")
 	public String hello(){
-		System.out.println("½ÓÊÕµ½ÇëÇó £¬Hello");
+		System.out.println("æ¥æ”¶åˆ°è¯·æ±‚ï¼ŒHello");
 		return "hi";
 	}
 	
@@ -25,16 +25,23 @@ public class LoginController {
 		try {
 			Member member = iMemberFunc.login(name, password);
 			if(member == null){
-				System.out.println("µÇÂ½Ê§°Ü");
+				System.out.println("ç™»é™†å¤±è´¥");
 			}else {
-				System.out.println("µÇÂ½³É¹¦");
+				System.out.println("ç™»é™†æˆåŠŸ");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println(e.getMessage());
-			System.out.println("µÇÂ¼Ê§°Ü");
+			System.out.println("ç™»å½•å¤±è´¥");
 		}
+		return null;
+	}
+
+	@RequestMapping(value = "/query")
+	public String query() throws Exception {
+		Member member = iMemberFunc.queryAll();
+		System.out.println(member.toString());
 		return null;
 	}
 }

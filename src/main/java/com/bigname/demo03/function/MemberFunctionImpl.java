@@ -7,7 +7,9 @@ import com.bigname.common.StringUtil;
 import com.bigname.demo03.core.Member;
 import com.bigname.demo03.dao.MemberDao;
 
-@Service
+import java.util.List;
+
+@Service(value = "iMemberFunc")
 public class MemberFunctionImpl implements IMemberFunction{
 	@Autowired
 	MemberDao mDao;
@@ -15,15 +17,20 @@ public class MemberFunctionImpl implements IMemberFunction{
 	public Member login(String name, String passsword) throws Exception {
 		System.out.println(name + passsword);
 		if(StringUtil.isNullOrZero(name)){
-			System.out.println("ÓÃ‘ôÃû²»ÄÜé¿Õ");
+			System.out.println("ç”¨æˆ¶åä¸èƒ½ç‚ºç©º");
 			return null;
 		}
 		if(StringUtil.isNullOrZero(passsword)){
-			System.out.println("ÃÜ´a²»ÄÜé¿Õ");
+			System.out.println("å¯†ç¢¼ä¸èƒ½ç‚ºç©º");
 			return null;
 		}
 		Member member = mDao.selectMemberByName(name);
 		return member;
+	}
+
+	public Member queryAll() throws Exception {
+		List<Member> member = mDao.queryAll();
+		return member.get(0);
 	}
 
 }
